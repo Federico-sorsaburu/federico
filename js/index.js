@@ -383,7 +383,7 @@ const card1 = (productosRemera) =>{
 
   const nombre = document.createElement("h2")
   nombre.innerText = productosRemera.nombre;
-  nombre.className = "textcard"
+  nombre.className = ""
 
   const precio = document.createElement("p")
   precio.innerText = `$${productosRemera.precio}`
