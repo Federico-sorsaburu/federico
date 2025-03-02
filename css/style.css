@@ -1,0 +1,146 @@
+ *{
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+ }
+ 
+ header{
+  background: black;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  
+ }
+ .ri-shopping-cart-line,
+ .ri-customer-service-line {
+   color: white;
+   font-size: 1.3rem;
+ }
+ .logoimg{
+  max-width:70px;
+ }
+  .nav{
+    display: flex;
+    align-items: center;
+    
+    
+  }
+  .carrito-soporte{
+    border: 1px solid red;
+    display: flex;
+    gap: 20px;
+  }
+ .ul-nav{
+  display: flex;
+  gap: 35px;
+  padding: 5px;
+ 
+ }
+ .nav-li{
+  color: white;
+  font-size: 1.2rem;
+  list-style-type: none;
+  padding: 5px;
+   
+ }
+ 
+.titulo-verde{
+    color: green;
+    font-size: 2rem;
+    font-weight: bolder;
+     font-style: italic;
+     font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+
+}
+.titulo-rojo{
+    color: #424242;
+    
+} 
+ .container{
+display: grid;
+ grid-template-columns: repeat(3,1fr);
+ justify-content: center;
+ gap: 50px;
+ width: 100%;
+ 
+    padding: 2rem;
+    background-color: rgb(25, 24, 24)
+ 
+ }
+ .card {
+  background: rgb(228, 225, 225);
+  width: 35rem;
+  height: 25rem;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: flex-end;
+  padding: 1rem;
+  border-radius: 20px;
+  position: relative;
+  overflow: hidden;  
+ 
+}
+
+.card::before {
+  content: "";
+  position: absolute;
+  top: -5px;
+  left: -5px;
+  right: -5px;
+  bottom: -5px;
+  background: linear-gradient(45deg,   #fa8602, #ffcc00);
+  border-radius: 20px;
+  z-index: -1;
+  animation: borderAnimation 5s linear infinite;
+ 
+}
+
+@keyframes borderAnimation {
+  0% { transform: rotate(0deg); }
+  100% { transform: rotate(0deg); }
+}
+ .btn{
+  padding: 10px;
+  border-radius: 5px;
+  font-weight: bold;
+  font-size: 1.1rem;
+  margin: 10px;
+  border: 1px solid rgba(137, 136, 136, 0.486);
+  
+ }
+ .btn:hover{
+  transition: .4s;
+  color: rgb(0, 0, 0);
+  background: rgb(236, 143, 67)
+ }
+ 
+ .card::after {
+  content: "";
+  position: absolute;
+  top: -5px;
+  left: -5px;
+  right: -5px;
+  bottom: -5px;
+  background: linear-gradient(45deg, #141413, #000000, #ff7300);
+  z-index: -1;
+  filter: blur(5px);
+  opacity: 0;
+ 
+ 
+  transition: opacity .2s ease-in-out;
+}
+.card:hover::after {
+  opacity: 1;
+}
+ .card:hover{
+  color: white;
+  filter: blur(0px);
+  font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+  font-style: italic;
+  font-size: 1.2rem;
+  box-shadow: 0px 10px 20px rgba(223, 205, 43, 0.3);
+ }
+ 
+
+ 
