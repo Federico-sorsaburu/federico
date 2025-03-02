@@ -49,20 +49,22 @@ header {
 form {
   display: flex;
   align-items: center;
-  gap: 10px; /* Espacio entre el input y el botón */
+  gap: 10px; 
   margin: 20px;
   width: 600px;
+  
 }
 
 form input[type="text"] {
   padding: 10px;
   font-size: 16px;
-  border: 1px solid #ccc;
-  border-radius: 4px;
+  border: 1px solid #ffffff;
+  border-radius: 40px;
   flex: 1;
+  
 }
 
-/* Estilo para el botón */
+
 form button {
   padding: 10px 20px;
   font-size: 16px;
@@ -74,7 +76,7 @@ form button {
   transition: background-color 0.3s ease;
 }
 
-/* Efecto hover en el botón */
+
 form button:hover {
   background-color: #e69500;
 }
