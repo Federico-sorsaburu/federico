@@ -1,112 +1,33 @@
-// let suma = 0; // Aquí guardaremos la suma
+const pedidos = [
+  {
+    id: 1,
+    cliente: "Mateo Donadio",
+    productos: [
+      { nombre: "Remera Nike Pro", cantidad: 2, precioUnitario: 2500 },
+      { nombre: "Remera Adidas Training", cantidad: 1, precioUnitario: 22800 },
+    ],
+  },
+  {
+    id: 2,
+    cliente: "Pedro Soda",
+    productos: [
+      { nombre: "Remera Puma Essentials", cantidad: 1, precioUnitario: 1800 },
+      { nombre: "Remera Reebok Speedwick", cantidad: 3, precioUnitario: 2700 },
+    ],
+  },
+  {
+    id: 3,
+    cliente: "Federico Sorsaburu",
+    productos: [
+      { nombre: "Remera Under Armour Rush", cantidad: 2, precioUnitario: 3200 },
+    ],
+  },
+];
 
-// Escribe un bucle que sume los números del 1 al 5
-// for (let i = 0; i <= 5; i++) {
-//    suma += i
-//    console.log(i)
-// }
+const buscarFede = pedidos.find(el => el.id === 3)
+console.log(buscarFede)
 
-// console.log("La suma total es:", suma);
-
-// for (let i = 1; i <= 10; i++){
-//     console.log(i)
-// }
-// for (let i = 10; i >= 1; i--){
-//     console.log(i)
-// }
-
-// let inicio = parseInt(prompt("Ingresa el número inicial:"));
-// let fin = parseInt(prompt("Ingresa el número final:"));
-
-// for (let i = inicio; i <= fin; i++) {
-//     if (i % 2 === 0) { // Verificamos si es par
-//         console.log(i, "es par");
-//     } else { // Si no es par, es impar
-//         console.log(i, "es impar");
-//     }
-// }
-
-// let stockTop = 50
-// let topPedidos = parseInt(prompt("¿Cuantos tops queres comprar?"))
-
-// if(topPedidos > stockTop){
-//     console.log("No hay suficientes Top ")
-// }else if (topPedidos < stockTop){
-//     console.log("stock disponible para ventas")
-// }
-
-// let operador = prompt("ingresar: suma - resta - multiplicar - dividir").toLowerCase()
-// let numero1 = parseInt(prompt("Ingresar un numero"))
-// let numero2 = parseInt(prompt("Ingresar un numero"))
-
-// if(operador === "suma"){
-//     console.log("el resultado es:", (numero1 + numero2))
-// }else if(operador === "resta"){
-//     console.log("el resultado es:", (numero1 - numero2))
-// }else if(operador === "multiplicar"){
-//     console.log("el resultado es:", (numero1 * numero2))
-// }else if (operador === "dividir"){
-//     console.log("el resultado es:", (numero1 / numero2))
-// }
-
-// const usuarioCorrecto = "fede123";
-// const passwordCorrecto = "clave123";
-// let intentos = 0;
-// const maxIntentos = 3;
-
-// function loginUsuario() {
-//     for (let i = intentos; i < maxIntentos; i++) {
-//         let user = prompt("Ingrese su usuario:");
-//         let password = prompt("Ingrese su contraseña:");
-
-//         if (user === usuarioCorrecto && password === passwordCorrecto) {
-
-//             console.log("Login exitoso Bienvenido, " + user);
-//             intentos = 0;
-//             break;
-//         } else {
-//             intentos++;
-//             alert(` Usuario o contraseña incorrectos. Intento ${intentos} de ${maxIntentos}`);
-//             console.log(`Usuario o contraseña incorrectos. Intento ${intentos} de ${maxIntentos}`);
-
-//             if (intentos >= maxIntentos) {
-//                 alert(" Cuenta bloqueada. Demasiados intentos fallidos.");
-
-//                 break;
-//             }
-//         }
-//     }
-// }
-
-// loginUsuario();
-
-//     for(let i = 0; i <= 3; i++){
-//         const usuario = prompt("ingresar usuario")
-//         const password = parseInt(prompt("Ingresar contraseña"))
-
-//         if(usuario === "usuario" && password === "clave2025"){
-//            alert ("bienvenido Usuario")
-//             break
-
-//         }else{
-//             alert("credencial incorrecta")
-//             const aviso = incrementoBloqueo(i)
-//             alert(aviso)
-//         }
-//     }
-// // Funcion de bloqueo =>
-//    function incrementoBloqueo(i){
-//     if(i === 2){
-//         return ("Alcanzaste el maximo de intentos, recuperar contraseña")
-//     }else{
-//         if( i=== 0){
-//             return "Te queda 2 intentos mas"
-//         }else{
-//             return "Te queda 1 intento"
-//         }
-//     }
-//    }
-
+ 
 const productosIndumentaria = [
   {
     nombre: "Remera Nike Pro",
@@ -254,17 +175,53 @@ const productosIndumentaria = [
     cantidad: 21,
   },
 ];
-
+// Almacenamiento del los arrays de obj..
 localStorage.setItem("productos", JSON.stringify(productosIndumentaria));
 
 const arrayProductos = JSON.parse(localStorage.getItem("productos"));
 console.log(arrayProductos);
 
-const sumaTotal = productosIndumentaria.reduce(
-  (acc, el) => el.precio * el.cantidad,
-  0
-);
-console.log(sumaTotal);
+
+// find: permite buscar y encontrar de acuerdo a la condicion que quiero para la busqueda
+// similar a los metodos , retorna la primera coincidencia
+
+
+// const sumaTotal = productosIndumentaria.reduce(
+//   (acc, el) => el.precio * el.cantidad,
+//   0
+// );
+// console.log(sumaTotal);
+
+const card1 = (productosRemera) => {
+  const card = document.createElement("div");
+  card.className = "card";
+
+  const nombre = document.createElement("h2");
+  nombre.innerText = productosRemera.nombre;
+  nombre.className = "";
+
+  const precio = document.createElement("p");
+  precio.innerText = `$${productosRemera.precio}`;
+
+  const stock = document.createElement("p");
+  stock.innerText = ` Stock Disponible: ${productosRemera.cantidad}`;
+
+  const btn = document.createElement("button");
+  btn.className = "btn";
+  btn.addEventListener("click", () => console.log("agregar al carrito"));
+  btn.innerText = `Comprar`;
+
+  card.appendChild(nombre);
+  card.appendChild(precio);
+  card.appendChild(stock);
+  card.appendChild(btn);
+
+  container.appendChild(card);
+};
+
+productosIndumentaria.forEach((el) => {
+  card1(el);
+});
 
 class UsuarioNuevo {
   constructor(nombre, apellido, correo, telefono) {
@@ -360,54 +317,12 @@ const indumentariaPantalon = [
   },
 ];
 
-
 // const titulo = document.getElementById("titulo")
 // titulo.innerText ="Bienvenidos a nuestra tienda Onlinne"
 // titulo.className +=  " titulo-verde"
 // console.log(titulo)
 
-
-// 
-
-
-
- 
- 
-
- 
-
- 
-const card1 = (productosRemera) =>{
-  const card = document.createElement("div")
-  card.className = "card"
-
-  const nombre = document.createElement("h2")
-  nombre.innerText = productosRemera.nombre;
-  nombre.className = ""
-
-  const precio = document.createElement("p")
-  precio.innerText = `$${productosRemera.precio}`
-
-  const stock = document.createElement("p")
-  stock.innerText =  ` Stock Disponible: ${productosRemera.cantidad}`
-
-  const btn = document.createElement("button")
-  btn.className = "btn"
-  btn.addEventListener("click", () => console.log("agregar al carrito"))
-  btn.innerText = `Comprar`
-
-  card.appendChild(nombre)
-  card.appendChild(precio)
-  card.appendChild(stock)
-  card.appendChild(btn)
-
-  container.appendChild(card)
-
-}
-
-productosIndumentaria.forEach(el => {
- card1(el)
-})
+//
 
 // addEventListener: se le pasa como primer parametro en string el nombre del evento
 // const botondePrueba = document.getElementById("btn-compra")
@@ -415,8 +330,17 @@ productosIndumentaria.forEach(el => {
 
 // botondePrueba.onclick = () => alert("gracias por comprar")
 
+// evento al salir de la pagina
 
+let title = document.title
 
+window.addEventListener('blur', () => {
 
+  title = document.title;
+  document.title = "No salgas, volve!"
+})
 
- 
+window.addEventListener('focus', () =>{
+  document.title = title    
+})
+
